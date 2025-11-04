@@ -24,6 +24,7 @@ require("lazy").update({	-- test auto-update
 -- still need to manually enable the desired language servers
 vim.lsp.enable('clangd')
 vim.lsp.enable('svls')
+vim.lsp.enable('texlab')
 
 -- vim.lsp.completion.get() is how you use autocompletion
 -- the below vim.keymap.set binds it to ctrl + space
