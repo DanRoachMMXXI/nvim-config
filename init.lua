@@ -52,3 +52,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		end, opts)
 	end,
 })
+
+-- ChatGPT generated block to turn on relative line numbers in NERDTree
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "nerdtree",
+  callback = function()
+    vim.opt_local.relativenumber = true
+    vim.opt_local.number = true
+  end,
+})
