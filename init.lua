@@ -15,6 +15,7 @@ require("config.lazy")
 require("lazy").update({	-- test auto-update
 	show = false,
 })
+-- require("nvim-treesitter").setup()
 
 -- Primary lsp configuration is managed in
 -- ~/.config/nvim/pack/nvim/start/nvim-lspconfig
@@ -23,6 +24,7 @@ require("lazy").update({	-- test auto-update
 
 -- still need to manually enable the desired language servers
 vim.lsp.enable('clangd')
+vim.lsp.enable('pyright')
 vim.lsp.enable('svls')
 vim.lsp.enable('texlab')
 
@@ -61,3 +63,10 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.number = true
   end,
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'python' },
+  callback = function() vim.treesitter.start() end,
+})
+
+vim.cmd("colorscheme cyberdream")
