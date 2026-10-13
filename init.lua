@@ -34,6 +34,14 @@ vim.lsp.enable('texlab')
 -- 	vim.lsp.completion.get()
 -- end)
 
+nvim_treesitter = require('nvim-treesitter')
+nvim_treesitter.setup()
+nvim_treesitter.install('systemverilog')
+nvim_treesitter.install('vhdl')
+nvim_treesitter.install('c')
+nvim_treesitter.install('cpp')
+nvim_treesitter.install('python')
+
 vim.diagnostic.config({
 	virtual_text = true	-- displays diagnostic messages inline
 })
@@ -65,7 +73,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'python' },
+  pattern = { 'systemverilog', 'python' },
   callback = function() vim.treesitter.start() end,
 })
 
